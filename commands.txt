@@ -1,0 +1,1 @@
+magick tree11.bmp -colorspace RGB -fill "rgb(255,0,0)" -depth 8 tree11.bmp

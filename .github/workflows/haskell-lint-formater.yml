@@ -1,0 +1,50 @@
+name: Haskell Lint and Format
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Haskell
+        uses: haskell/actions/setup@v1
+        with:
+          ghc-version: '9.4.8'
+          enable-stack: true
+
+      - name: Install HLint
+        run: stack install hlint --resolver lts-20.20
+
+      - name: Run HLint
+        run: hlint .
+
+      - name: Install Ormolu
+        run: stack install ormolu --resolver lts-20.20
+
+      - name: Check formatting with Ormolu
+        run: |
+          ormolu --mode check $(find . -name "*.hs")
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint-and-format
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Haskell
+        uses: haskell/actions/setup@v1
+        with:
+          ghc-version: '9.4.8'
+          enable-stack: true
+
+      - name: Run tests
+        run: stack test
