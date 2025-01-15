@@ -20,13 +20,13 @@ jobs:
           enable-stack: true
 
       - name: Install HLint
-        run: stack install hlint --allow-newer --resolver lts-20.20
+        run: stack install hlint --resolver lts-20.20
 
       - name: Run HLint
         run: hlint .
 
       - name: Install Ormolu
-        run: stack install ormolu --allow-newer --resolver lts-20.20
+        run: stack install ormolu --resolver lts-20.20
 
       - name: Check formatting with Ormolu
         run: |
