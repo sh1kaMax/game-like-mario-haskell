@@ -10,9 +10,8 @@
 
 ## Реализация программы
 
-Два метода реализованы в файлу [Interpolation.hs](src/Interpolation.hs)  
-
 Реализация программы разделена на несколько блоков:
+
 - [Collision.hs](src/Collision.hs) (Обработка столкновений)
 - [Player.hs](src/Player.hs) (Логика игрока)
 - [Enemy.hs](src/Enemy.hs) (Логика бота)
