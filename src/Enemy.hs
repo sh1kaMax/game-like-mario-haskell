@@ -4,7 +4,6 @@ import Collision (isCollision, isHitX, isWallNeeded)
 import Control.Monad.Free
 import Util (Enemy (..), EnemyAction (..), EnemyProgram, GameState)
 
--- Удобные функции для создания поведения
 moveLeft :: EnemyProgram ()
 moveLeft = liftF $ MoveLeft ()
 
@@ -14,7 +13,6 @@ moveRight = liftF $ MoveRight ()
 wait :: EnemyProgram ()
 wait = liftF $ Wait ()
 
--- Пример поведения врага
 enemyBehaviorLeft :: EnemyProgram ()
 enemyBehaviorLeft = do
   moveLeft
