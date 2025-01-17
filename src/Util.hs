@@ -6,7 +6,9 @@ import Control.Monad.Free
 import Graphics.Gloss
 
 type CellType = (Char, Bool)
+
 type Level = [Cell]
+
 type Cell = (Point, CellType)
 
 blockSize :: Float
